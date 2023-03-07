@@ -1,46 +1,45 @@
-package SortandSearching;
+package udemy_datastructures;
 
-import java.util.Scanner;  
+public class SelectionSort {
+	public static void main(String[] args) {
 
-public class SelectionSort
-{  
-   public static void main(String args[])  
-   {  
-       int size, i, j, temp;  
-       int arr[] = new int[50];  
-       Scanner scan = new Scanner(System.in);  
-         
-       System.out.print("Enter Array Size : ");  
-       size = scan.nextInt();  
-         
-       System.out.print("Enter Array Elements : ");  
-       for(i=0; i<size; i++)  
-       {  
-           arr[i] = scan.nextInt();  
-       }  
-         
-       System.out.print("Sorting Array using Selection Sort Technique..\n");  
-       for(i=0; i<size; i++)  
-       {  
-    	// Find the minimum element in unsorted array
-          int min=i;
-    	   for(j=i+1; j<size; j++)  
-           {  
-               if(arr[min] > arr[j])  
-                   min=j;
-            // Swap the found minimum element with the first
-               // element
-                temp=arr[min];
-                arr[min]=arr[i];
-                arr[i]=temp;
-              
-           }  
-       }  
-         
-       System.out.print("Now the Array after Sorting is :\n");  
-       for(i=0; i<size; i++)  
-       {  
-           System.out.print(arr[i]+ "  ");  
-       }  
-   }  
-}  
+
+        int[] intArray = { 20, 35, -15, 7, 55, 1, -22 };
+
+        for (int lastUnsortedIndex = intArray.length - 1; lastUnsortedIndex > 0;
+                lastUnsortedIndex--) {
+
+            int largest = 0; //this should not be before for loop of lastUnsortindex else result will be wong as largest will change thats why
+           //sfter every iteration again largest becomes zero
+            for (int i = 1; i <= lastUnsortedIndex; i++) {
+                if (intArray[i] > intArray[largest]) {
+                    largest = i;
+                }
+            }
+
+            swap(intArray, largest, lastUnsortedIndex);
+
+        }
+
+
+        for (int i = 0; i < intArray.length; i++) {
+            System.out.println(intArray[i]);
+        }
+
+
+    }
+
+    public static void swap(int[] array, int i, int j) {
+
+        if (i == j) {
+            return;
+        }
+
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+
+    }
+
+
+}
