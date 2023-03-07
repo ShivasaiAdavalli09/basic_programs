@@ -2,7 +2,7 @@ package programs;
 
 import java.util.Scanner;
 
-public class Practice {
+public class Reverse {
 	
 	public static void main(String args[])
 	{
