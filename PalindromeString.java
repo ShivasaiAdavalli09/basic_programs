@@ -1,26 +1,17 @@
-package programs;
-
-import java.util.Scanner;
+package q4interview.programs;
 
 public class PalindromeString {
-	
-	public static void main(String args[])
-	{
-		String str,reverse="";
-		System.out.println("enter the string");
-		Scanner in=new Scanner(System.in);
-		str=in.nextLine();
-		int length=str.length();
-		for(int i=length-1;i>=0;i--)
-		{
-		reverse=reverse+str.charAt(i);	
-		}
-		if(str.equals(reverse))
-		System.out.println("the string is palindrome"+reverse);
-		
-		else
-			System.out.println("the string is not palindrome");
-		
-	}
 
+	public static void main(String args[]){
+		
+		String str="madam";
+		String rev="";
+		for(int i=str.length()-1;i>=0;i--){
+			rev=rev+str.charAt(i);
+		}
+		if(rev.equalsIgnoreCase(str))
+			System.out.println("this is palindrome"); //we can use str.reverse() only on String builder strings
+		else
+			System.out.println("this is not palindrome");
+	}
 }
